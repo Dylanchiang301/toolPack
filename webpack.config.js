@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.jsx',
     output: {
-        path: path.resolve(__dirname, 'dist'), // 输出目录
-        filename: 'bundle.js' // 输出文件名
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
@@ -26,11 +26,11 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx'], // 解析 .js 和 .jsx 文件
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html' // 指定模板文件
+            template: './src/index.html'
         })
     ],
     devServer: {
